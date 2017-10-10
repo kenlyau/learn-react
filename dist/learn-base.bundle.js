@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "./";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 31);
+/******/ 	return __webpack_require__(__webpack_require__.s = 36);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -21152,14 +21152,19 @@ module.exports = function() {
 
 
 /***/ }),
-/* 31 */
+/* 31 */,
+/* 32 */,
+/* 33 */,
+/* 34 */,
+/* 35 */,
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(32);
+module.exports = __webpack_require__(37);
 
 
 /***/ }),
-/* 32 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21183,14 +21188,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var foldersContext = __webpack_require__(33);
-var learns = foldersContext.keys().filter(function (item) {
-  return item.indexOf('learn-') > -1;
-}).map(function (item) {
-  var tmp = item.split('/');
-  return tmp[1] ? tmp[1] : '';
-});
-
 var App = function (_React$Component) {
   _inherits(App, _React$Component);
 
@@ -21203,21 +21200,10 @@ var App = function (_React$Component) {
   _createClass(App, [{
     key: 'render',
     value: function render() {
-      var lis = learns.map(function (item, i) {
-        return _react2.default.createElement(
-          'li',
-          { key: i },
-          _react2.default.createElement(
-            'a',
-            { href: '/' + item + '.html' },
-            item
-          )
-        );
-      });
       return _react2.default.createElement(
-        'ul',
+        'div',
         null,
-        lis
+        'hello..base'
       );
     }
   }]);
@@ -21226,42 +21212,6 @@ var App = function (_React$Component) {
 }(_react2.default.Component);
 
 _reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('app'));
-
-/***/ }),
-/* 33 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var map = {
-	"./index.html": 34,
-	"./learn-base/index.html": 35
-};
-function webpackContext(req) {
-	return __webpack_require__(webpackContextResolve(req));
-};
-function webpackContextResolve(req) {
-	var id = map[req];
-	if(!(id + 1)) // check for number or string
-		throw new Error("Cannot find module '" + req + "'.");
-	return id;
-};
-webpackContext.keys = function webpackContextKeys() {
-	return Object.keys(map);
-};
-webpackContext.resolve = webpackContextResolve;
-module.exports = webpackContext;
-webpackContext.id = 33;
-
-/***/ }),
-/* 34 */
-/***/ (function(module, exports) {
-
-throw new Error("Module parse failed: F:\\workspace\\github\\learn-react\\src\\index.html Unexpected token (1:0)\nYou may need an appropriate loader to handle this file type.\n| <!doctype html>\r\n| <html>\r\n| <head>\r");
-
-/***/ }),
-/* 35 */
-/***/ (function(module, exports) {
-
-throw new Error("Module parse failed: F:\\workspace\\github\\learn-react\\src\\learn-base\\index.html Unexpected token (1:0)\nYou may need an appropriate loader to handle this file type.\n| <!doctype html>\r\n| <html>\r\n| <head>\r");
 
 /***/ })
 /******/ ]);
