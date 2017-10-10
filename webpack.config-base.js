@@ -28,10 +28,7 @@ const config = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        exclude: /node_module/,
-        query: {
-          presets: ['react', 'env']
-        }
+        exclude: /node_module/
       },
       {
         test: /\.html$/,
