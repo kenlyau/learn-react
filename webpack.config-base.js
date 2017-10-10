@@ -34,7 +34,7 @@ const config = {
         }
       },
       {
-        test: /\.js$/,
+        test: /\.html$/,
         loader: 'html-loader?attrs=false'
       },
       {
