@@ -12,7 +12,7 @@ const learns = foldersContext
 
 class App extends React.Component {
   render() {
-    const lis = learns.map((item,i) => <li key={i}><a href={'/'+ item +'.html'}>{item}</a></li>)
+    const lis = learns.map((item,i) => <li key={i}><a href={'./'+ item +'.html'}>{item}</a></li>)
     return (
       <ul>
         {lis}

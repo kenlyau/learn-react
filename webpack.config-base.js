@@ -34,6 +34,10 @@ const config = {
         }
       },
       {
+        test: /\.js$/,
+        loader: 'html-loader?attrs=false'
+      },
+      {
         test: /\.css/,
         loader: ['style-loader','css-loader']
       }
