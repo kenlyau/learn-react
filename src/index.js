@@ -7,12 +7,12 @@ const learns = foldersContext
   .filter(item => item.indexOf('learn-') > -1)
   .map(item => {
     let tmp = item.split('/')
-    return tmp[1] ? tmp[1]: ''
+    return tmp[1] ? tmp[1] : ''
   })
 
 class App extends React.Component {
-  render() {
-    const lis = learns.map((item,i) => <li key={i}><a href={'./'+ item +'.html'}>{item}</a></li>)
+  render () {
+    const lis = learns.map((item, i) => <li key={i}><a href={'./' + item + '.html'}>{item}</a></li>)
     return (
       <ul>
         {lis}
