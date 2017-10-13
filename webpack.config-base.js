@@ -1,8 +1,6 @@
 const path = require('path')
 const fs = require('fs')
-const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 var folders = fs.readdirSync('./src')
 folders = folders.filter(item => item.indexOf('learn-') > -1)
@@ -12,7 +10,7 @@ const config = {
     index: ['./src/index.js']
   },
   output: {
-    path: path.resolve(__dirname,'dist'),
+    path: path.resolve(__dirname, 'dist'),
     filename: '[name].bundle.js',
     publicPath: './'
   },
@@ -36,7 +34,7 @@ const config = {
       },
       {
         test: /\.css/,
-        loader: ['style-loader','css-loader']
+        loader: ['style-loader', 'css-loader']
       }
     ]
   }

@@ -3,13 +3,13 @@ import React from 'react'
 function Foo () {
   const list = [0, 1, 2, 3, 4, 5, 6]
   return [
-    <div className="foo" key="a">foo</div>,
+    <div style={{border: '1px solid blue'}} className="foo" key="a">foo</div>,
     <Bar key="b" list={list}/>
   ]
 }
 function Bar (props) {
   return (
-    <ul>
+    <ul style={{border: '1px solid green'}}>
       {props.list.map(i => <li key={i}>{i}</li>)}
     </ul>
   )
