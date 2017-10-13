@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "./";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 38);
+/******/ 	return __webpack_require__(__webpack_require__.s = 44);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -21159,14 +21159,20 @@ module.exports = function() {
 /* 35 */,
 /* 36 */,
 /* 37 */,
-/* 38 */
+/* 38 */,
+/* 39 */,
+/* 40 */,
+/* 41 */,
+/* 42 */,
+/* 43 */,
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(39);
+module.exports = __webpack_require__(45);
 
 
 /***/ }),
-/* 39 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21180,7 +21186,7 @@ var _reactDom = __webpack_require__(17);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _app = __webpack_require__(40);
+var _app = __webpack_require__(46);
 
 var _app2 = _interopRequireDefault(_app);
 
@@ -21189,7 +21195,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _reactDom2.default.render(_react2.default.createElement(_app2.default, null), document.getElementById('app'));
 
 /***/ }),
-/* 40 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21198,6 +21204,7 @@ _reactDom2.default.render(_react2.default.createElement(_app2.default, null), do
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.Child = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -21213,27 +21220,90 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var App = function (_React$Component) {
-  _inherits(App, _React$Component);
+var Child = exports.Child = function (_React$Component) {
+  _inherits(Child, _React$Component);
+
+  function Child(props) {
+    _classCallCheck(this, Child);
+
+    var _this = _possibleConstructorReturn(this, (Child.__proto__ || Object.getPrototypeOf(Child)).call(this, props));
+
+    _this.state = {
+      time: 1
+    };
+    _this.interval = setInterval(function () {
+      return _this.setState({ time: _this.state.time + 1 });
+    }, 1000);
+    return _this;
+  }
+
+  _createClass(Child, [{
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      clearInterval(this.interval);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { style: { border: '1px solid #666600', padding: '20px' } },
+        this.props.data.name,
+        _react2.default.createElement(
+          'p',
+          null,
+          this.state.time
+        )
+      );
+    }
+  }]);
+
+  return Child;
+}(_react2.default.Component);
+
+var App = function (_React$Component2) {
+  _inherits(App, _React$Component2);
 
   function App(props) {
     _classCallCheck(this, App);
 
-    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+    var _this2 = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
-    _this.state = {
-      hello: props.hello ? props.hello : 'hello'
+    _this2.state = {
+      name: 'react component state',
+      show: true,
+      child: {
+        name: 'react child compoent'
+      }
     };
-    return _this;
+    _this2.toggle = function () {
+      _this2.setState({ show: !_this2.state.show });
+    };
+    return _this2;
   }
 
   _createClass(App, [{
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        'h1',
+        'div',
         null,
-        this.state.hello
+        _react2.default.createElement(
+          'h1',
+          null,
+          this.state.name
+        ),
+        _react2.default.createElement(
+          'button',
+          { onClick: this.toggle },
+          'Toggle show child'
+        ),
+        _react2.default.createElement(
+          'pre',
+          null,
+          JSON.stringify(this.state, null, 4)
+        ),
+        this.state.show ? _react2.default.createElement(Child, { data: this.state.child }) : ''
       );
     }
   }]);

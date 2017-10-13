@@ -21233,7 +21233,9 @@ _reactDom2.default.render(_react2.default.createElement(App, null), document.get
 
 var map = {
 	"./index.html": 34,
-	"./learn-base/index.html": 35
+	"./learn-base/index.html": 35,
+	"./learn-component/index.html": 36,
+	"./learn-state/index.html": 37
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -21262,6 +21264,18 @@ module.exports = "<!doctype html>\r\n<html>\r\n<head>\r\n  <meta charset=\"utf-8
 /***/ (function(module, exports) {
 
 module.exports = "<!doctype html>\r\n<html>\r\n<head>\r\n  <meta charset=\"utf-8\">\r\n  <title>learn react</title>\r\n</head>\r\n<body>\r\n  <div id=\"app\"></div>\r\n</body>\r\n</html>";
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports) {
+
+module.exports = "<!doctype html>\r\n<html>\r\n<head>\r\n  <meta charset=\"utf-8\">\r\n  <title>learn react component</title>\r\n</head>\r\n<body>\r\n  <div id=\"app\" style=\"border: 1px solid red;\"></div>\r\n</body>\r\n</html>";
+
+/***/ }),
+/* 37 */
+/***/ (function(module, exports) {
+
+module.exports = "<!doctype html>\r\n<html>\r\n<head>\r\n  <meta charset=\"utf-8\">\r\n  <title>learn react state</title>\r\n</head>\r\n<body>\r\n  <div id=\"app\"></div>\r\n</body>\r\n</html>";
 
 /***/ })
 /******/ ]);
