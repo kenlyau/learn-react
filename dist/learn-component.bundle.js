@@ -60,7 +60,11 @@
 /******/ 	__webpack_require__.p = "./";
 /******/
 /******/ 	// Load entry module and return exports
+<<<<<<< HEAD
 /******/ 	return __webpack_require__(__webpack_require__.s = 41);
+=======
+/******/ 	return __webpack_require__(__webpack_require__.s = 45);
+>>>>>>> master
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -21162,6 +21166,7 @@ module.exports = function() {
 /* 38 */,
 /* 39 */,
 /* 40 */,
+<<<<<<< HEAD
 /* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -21170,6 +21175,20 @@ module.exports = __webpack_require__(42);
 
 /***/ }),
 /* 42 */
+=======
+/* 41 */,
+/* 42 */,
+/* 43 */,
+/* 44 */,
+/* 45 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(46);
+
+
+/***/ }),
+/* 46 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21183,7 +21202,11 @@ var _reactDom = __webpack_require__(17);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
+<<<<<<< HEAD
 var _app = __webpack_require__(43);
+=======
+var _app = __webpack_require__(47);
+>>>>>>> master
 
 var _app2 = _interopRequireDefault(_app);
 
@@ -21192,7 +21215,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _reactDom2.default.render(_react2.default.createElement(_app2.default, null), document.getElementById('app'));
 
 /***/ }),
+<<<<<<< HEAD
 /* 43 */
+=======
+/* 47 */
+>>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

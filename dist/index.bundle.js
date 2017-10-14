@@ -21234,8 +21234,14 @@ _reactDom2.default.render(_react2.default.createElement(App, null), document.get
 var map = {
 	"./index.html": 34,
 	"./learn-base/index.html": 35,
+<<<<<<< HEAD
 	"./learn-component/index.html": 36,
 	"./learn-state/index.html": 37
+=======
+	"./learn-communicate-between-components/index.html": 36,
+	"./learn-component/index.html": 37,
+	"./learn-state/index.html": 38
+>>>>>>> master
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -21257,13 +21263,31 @@ webpackContext.id = 33;
 /* 34 */
 /***/ (function(module, exports) {
 
-module.exports = "<!doctype html>\r\n<html>\r\n<head>\r\n  <meta charset=\"utf-8\">\r\n  <title>learn react</title>\r\n</head>\r\n<body>\r\n  <div id=\"app\"></div>\r\n</body>\r\n</html>";
+module.exports = "<!doctype html>\n<html>\n<head>\n  <meta charset=\"utf-8\">\n  <title>learn react</title>\n</head>\n<body>\n  <div id=\"app\"></div>\n</body>\n</html>";
 
 /***/ }),
 /* 35 */
 /***/ (function(module, exports) {
 
-module.exports = "<!doctype html>\r\n<html>\r\n<head>\r\n  <meta charset=\"utf-8\">\r\n  <title>learn react</title>\r\n</head>\r\n<body>\r\n  <div id=\"app\"></div>\r\n</body>\r\n</html>";
+module.exports = "<!doctype html>\n<html>\n<head>\n  <meta charset=\"utf-8\">\n  <title>learn react</title>\n</head>\n<body>\n  <div id=\"app\"></div>\n</body>\n</html>";
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports) {
+
+module.exports = "<!doctype html>\n<html>\n<head>\n  <meta charset=\"utf-8\">\n  <title>learn react</title>\n</head>\n<body>\n  <div id=\"app\"></div>\n</body>\n</html>";
+
+/***/ }),
+/* 37 */
+/***/ (function(module, exports) {
+
+module.exports = "<!doctype html>\n<html>\n<head>\n  <meta charset=\"utf-8\">\n  <title>learn react component</title>\n</head>\n<body>\n  <div id=\"app\" style=\"border: 1px solid red;\"></div>\n</body>\n</html>";
+
+/***/ }),
+/* 38 */
+/***/ (function(module, exports) {
+
+module.exports = "<!doctype html>\n<html>\n<head>\n  <meta charset=\"utf-8\">\n  <title>learn react state</title>\n</head>\n<body>\n  <div id=\"app\"></div>\n</body>\n</html>";
 
 /***/ }),
 /* 36 */
