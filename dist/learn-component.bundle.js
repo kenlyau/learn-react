@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "./";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 31);
+/******/ 	return __webpack_require__(__webpack_require__.s = 45);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -21152,20 +21152,32 @@ module.exports = function() {
 
 
 /***/ }),
-/* 31 */
+/* 31 */,
+/* 32 */,
+/* 33 */,
+/* 34 */,
+/* 35 */,
+/* 36 */,
+/* 37 */,
+/* 38 */,
+/* 39 */,
+/* 40 */,
+/* 41 */,
+/* 42 */,
+/* 43 */,
+/* 44 */,
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(32);
+module.exports = __webpack_require__(46);
 
 
 /***/ }),
-/* 32 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(6);
 
@@ -21175,6 +21187,31 @@ var _reactDom = __webpack_require__(17);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
+var _app = __webpack_require__(47);
+
+var _app2 = _interopRequireDefault(_app);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_reactDom2.default.render(_react2.default.createElement(_app2.default, null), document.getElementById('app'));
+
+/***/ }),
+/* 47 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -21183,106 +21220,48 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var foldersContext = __webpack_require__(33);
-var learns = foldersContext.keys().filter(function (item) {
-  return item.indexOf('learn-') > -1;
-}).map(function (item) {
-  var tmp = item.split('/');
-  return tmp[1] ? tmp[1] : '';
-});
+function Foo() {
+  var list = [0, 1, 2, 3, 4, 5, 6];
+  return [_react2.default.createElement(
+    'div',
+    { style: { border: '1px solid blue' }, className: 'foo', key: 'a' },
+    'foo'
+  ), _react2.default.createElement(Bar, { key: 'b', list: list })];
+}
+function Bar(props) {
+  return _react2.default.createElement(
+    'ul',
+    { style: { border: '1px solid green' } },
+    props.list.map(function (i) {
+      return _react2.default.createElement(
+        'li',
+        { key: i },
+        i
+      );
+    })
+  );
+}
 
 var App = function (_React$Component) {
   _inherits(App, _React$Component);
 
-  function App() {
+  function App(props) {
     _classCallCheck(this, App);
 
-    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
   }
 
   _createClass(App, [{
     key: 'render',
     value: function render() {
-      var lis = learns.map(function (item, i) {
-        return _react2.default.createElement(
-          'li',
-          { key: i },
-          _react2.default.createElement(
-            'a',
-            { href: './' + item + '.html' },
-            item
-          )
-        );
-      });
-      return _react2.default.createElement(
-        'ul',
-        null,
-        lis
-      );
+      return _react2.default.createElement(Foo, null);
     }
   }]);
 
   return App;
 }(_react2.default.Component);
 
-_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('app'));
-
-/***/ }),
-/* 33 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var map = {
-	"./index.html": 34,
-	"./learn-base/index.html": 35,
-	"./learn-communicate-between-components/index.html": 36,
-	"./learn-component/index.html": 37,
-	"./learn-state/index.html": 38
-};
-function webpackContext(req) {
-	return __webpack_require__(webpackContextResolve(req));
-};
-function webpackContextResolve(req) {
-	var id = map[req];
-	if(!(id + 1)) // check for number or string
-		throw new Error("Cannot find module '" + req + "'.");
-	return id;
-};
-webpackContext.keys = function webpackContextKeys() {
-	return Object.keys(map);
-};
-webpackContext.resolve = webpackContextResolve;
-module.exports = webpackContext;
-webpackContext.id = 33;
-
-/***/ }),
-/* 34 */
-/***/ (function(module, exports) {
-
-module.exports = "<!doctype html>\n<html>\n<head>\n  <meta charset=\"utf-8\">\n  <title>learn react</title>\n</head>\n<body>\n  <div id=\"app\"></div>\n</body>\n</html>";
-
-/***/ }),
-/* 35 */
-/***/ (function(module, exports) {
-
-module.exports = "<!doctype html>\n<html>\n<head>\n  <meta charset=\"utf-8\">\n  <title>learn react</title>\n</head>\n<body>\n  <div id=\"app\"></div>\n</body>\n</html>";
-
-/***/ }),
-/* 36 */
-/***/ (function(module, exports) {
-
-module.exports = "<!doctype html>\n<html>\n<head>\n  <meta charset=\"utf-8\">\n  <title>learn react</title>\n</head>\n<body>\n  <div id=\"app\"></div>\n</body>\n</html>";
-
-/***/ }),
-/* 37 */
-/***/ (function(module, exports) {
-
-module.exports = "<!doctype html>\n<html>\n<head>\n  <meta charset=\"utf-8\">\n  <title>learn react component</title>\n</head>\n<body>\n  <div id=\"app\" style=\"border: 1px solid red;\"></div>\n</body>\n</html>";
-
-/***/ }),
-/* 38 */
-/***/ (function(module, exports) {
-
-module.exports = "<!doctype html>\n<html>\n<head>\n  <meta charset=\"utf-8\">\n  <title>learn react state</title>\n</head>\n<body>\n  <div id=\"app\"></div>\n</body>\n</html>";
+exports.default = App;
 
 /***/ })
 /******/ ]);

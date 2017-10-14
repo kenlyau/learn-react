@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "./";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 31);
+/******/ 	return __webpack_require__(__webpack_require__.s = 42);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -21152,20 +21152,29 @@ module.exports = function() {
 
 
 /***/ }),
-/* 31 */
+/* 31 */,
+/* 32 */,
+/* 33 */,
+/* 34 */,
+/* 35 */,
+/* 36 */,
+/* 37 */,
+/* 38 */,
+/* 39 */,
+/* 40 */,
+/* 41 */,
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(32);
+module.exports = __webpack_require__(43);
 
 
 /***/ }),
-/* 32 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(6);
 
@@ -21175,6 +21184,32 @@ var _reactDom = __webpack_require__(17);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
+var _app = __webpack_require__(44);
+
+var _app2 = _interopRequireDefault(_app);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_reactDom2.default.render(_react2.default.createElement(_app2.default, null), document.getElementById('app'));
+
+/***/ }),
+/* 44 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Child2 = exports.Child1 = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -21183,41 +21218,75 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var foldersContext = __webpack_require__(33);
-var learns = foldersContext.keys().filter(function (item) {
-  return item.indexOf('learn-') > -1;
-}).map(function (item) {
-  var tmp = item.split('/');
-  return tmp[1] ? tmp[1] : '';
-});
-
 var App = function (_React$Component) {
   _inherits(App, _React$Component);
 
-  function App() {
+  function App(props) {
     _classCallCheck(this, App);
 
-    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+    _this.state = {
+      parent: {
+        name: 'parent component',
+        number: 0
+      },
+      child1: {
+        name: 'child component one',
+        number: 0
+      },
+      child2: {
+        name: 'child component two',
+        number: 0
+      }
+    };
+
+    _this.changeChildNumber = function () {
+      _this.setState({
+        child1: Object.assign({}, _this.state.child1, { number: _this.state.child1.number + 1 })
+      });
+    };
+    _this.changeParentNumber = function (number) {
+      _this.setState({
+        parent: Object.assign({}, _this.state.parent, { number: _this.state.parent.number + 1 })
+      });
+    };
+    _this.changeChild2Number = function () {
+      _this.setState({
+        child2: Object.assign({}, _this.state.child2, { number: _this.state.child2.number + 1 })
+      });
+    };
+    return _this;
   }
 
   _createClass(App, [{
     key: 'render',
     value: function render() {
-      var lis = learns.map(function (item, i) {
-        return _react2.default.createElement(
-          'li',
-          { key: i },
-          _react2.default.createElement(
-            'a',
-            { href: './' + item + '.html' },
-            item
-          )
-        );
-      });
       return _react2.default.createElement(
-        'ul',
-        null,
-        lis
+        'div',
+        { style: { border: '1px solid red', padding: '20px' } },
+        _react2.default.createElement(
+          'h1',
+          null,
+          this.state.parent.name
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'parent number: ',
+          this.state.parent.number
+        ),
+        _react2.default.createElement(
+          'button',
+          { onClick: this.changeChildNumber },
+          'change child1 number'
+        ),
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(Child1, { changeChild2Number: this.changeChild2Number, data: this.state.child1 }),
+          _react2.default.createElement(Child2, { changeParentNumber: this.changeParentNumber, data: this.state.child2 })
+        )
       );
     }
   }]);
@@ -21225,64 +21294,93 @@ var App = function (_React$Component) {
   return App;
 }(_react2.default.Component);
 
-_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('app'));
+exports.default = App;
 
-/***/ }),
-/* 33 */
-/***/ (function(module, exports, __webpack_require__) {
+var Child1 = exports.Child1 = function (_React$Component2) {
+  _inherits(Child1, _React$Component2);
 
-var map = {
-	"./index.html": 34,
-	"./learn-base/index.html": 35,
-	"./learn-communicate-between-components/index.html": 36,
-	"./learn-component/index.html": 37,
-	"./learn-state/index.html": 38
-};
-function webpackContext(req) {
-	return __webpack_require__(webpackContextResolve(req));
-};
-function webpackContextResolve(req) {
-	var id = map[req];
-	if(!(id + 1)) // check for number or string
-		throw new Error("Cannot find module '" + req + "'.");
-	return id;
-};
-webpackContext.keys = function webpackContextKeys() {
-	return Object.keys(map);
-};
-webpackContext.resolve = webpackContextResolve;
-module.exports = webpackContext;
-webpackContext.id = 33;
+  function Child1(props) {
+    _classCallCheck(this, Child1);
 
-/***/ }),
-/* 34 */
-/***/ (function(module, exports) {
+    var _this2 = _possibleConstructorReturn(this, (Child1.__proto__ || Object.getPrototypeOf(Child1)).call(this, props));
 
-module.exports = "<!doctype html>\n<html>\n<head>\n  <meta charset=\"utf-8\">\n  <title>learn react</title>\n</head>\n<body>\n  <div id=\"app\"></div>\n</body>\n</html>";
+    _this2.changeNextNumber = function () {
+      _this2.props.changeChild2Number();
+    };
+    return _this2;
+  }
 
-/***/ }),
-/* 35 */
-/***/ (function(module, exports) {
+  _createClass(Child1, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { style: { border: '1px solid blue', padding: '10px', marginTop: '20px' } },
+        _react2.default.createElement(
+          'h2',
+          null,
+          this.props.data.name
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'child number: ',
+          this.props.data.number
+        ),
+        _react2.default.createElement(
+          'button',
+          { onClick: this.changeNextNumber },
+          'change child2 number'
+        )
+      );
+    }
+  }]);
 
-module.exports = "<!doctype html>\n<html>\n<head>\n  <meta charset=\"utf-8\">\n  <title>learn react</title>\n</head>\n<body>\n  <div id=\"app\"></div>\n</body>\n</html>";
+  return Child1;
+}(_react2.default.Component);
 
-/***/ }),
-/* 36 */
-/***/ (function(module, exports) {
+var Child2 = exports.Child2 = function (_React$Component3) {
+  _inherits(Child2, _React$Component3);
 
-module.exports = "<!doctype html>\n<html>\n<head>\n  <meta charset=\"utf-8\">\n  <title>learn react</title>\n</head>\n<body>\n  <div id=\"app\"></div>\n</body>\n</html>";
+  function Child2(props) {
+    _classCallCheck(this, Child2);
 
-/***/ }),
-/* 37 */
-/***/ (function(module, exports) {
+    var _this3 = _possibleConstructorReturn(this, (Child2.__proto__ || Object.getPrototypeOf(Child2)).call(this, props));
 
-module.exports = "<!doctype html>\n<html>\n<head>\n  <meta charset=\"utf-8\">\n  <title>learn react component</title>\n</head>\n<body>\n  <div id=\"app\" style=\"border: 1px solid red;\"></div>\n</body>\n</html>";
+    _this3.changeParentNumber = function () {
+      _this3.props.changeParentNumber();
+    };
+    return _this3;
+  }
 
-/***/ }),
-/* 38 */
-/***/ (function(module, exports) {
+  _createClass(Child2, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { style: { border: '1px solid green', padding: '10px', marginTop: '20px' } },
+        _react2.default.createElement(
+          'h2',
+          null,
+          this.props.data.name
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'child number: ',
+          this.props.data.number
+        ),
+        _react2.default.createElement(
+          'button',
+          { onClick: this.changeParentNumber },
+          'change parent number'
+        )
+      );
+    }
+  }]);
 
-module.exports = "<!doctype html>\n<html>\n<head>\n  <meta charset=\"utf-8\">\n  <title>learn react state</title>\n</head>\n<body>\n  <div id=\"app\"></div>\n</body>\n</html>";
+  return Child2;
+}(_react2.default.Component);
 
 /***/ })
 /******/ ]);
