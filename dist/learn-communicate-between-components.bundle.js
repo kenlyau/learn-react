@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "./";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 48);
+/******/ 	return __webpack_require__(__webpack_require__.s = 45);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -21166,17 +21166,14 @@ module.exports = function() {
 /* 42 */,
 /* 43 */,
 /* 44 */,
-/* 45 */,
-/* 46 */,
-/* 47 */,
-/* 48 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(49);
+module.exports = __webpack_require__(46);
 
 
 /***/ }),
-/* 49 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21190,7 +21187,7 @@ var _reactDom = __webpack_require__(17);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _app = __webpack_require__(50);
+var _app = __webpack_require__(47);
 
 var _app2 = _interopRequireDefault(_app);
 
@@ -21199,7 +21196,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _reactDom2.default.render(_react2.default.createElement(_app2.default, null), document.getElementById('app'));
 
 /***/ }),
-/* 50 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21208,6 +21205,7 @@ _reactDom2.default.render(_react2.default.createElement(_app2.default, null), do
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.Child2 = exports.Child1 = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -21223,41 +21221,76 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-function Foo() {
-  var list = [0, 1, 2, 3, 4, 5, 6];
-  return [_react2.default.createElement(
-    'div',
-    { style: { border: '1px solid blue' }, className: 'foo', key: 'a' },
-    'foo'
-  ), _react2.default.createElement(Bar, { key: 'b', list: list })];
-}
-function Bar(props) {
-  return _react2.default.createElement(
-    'ul',
-    { style: { border: '1px solid green' } },
-    props.list.map(function (i) {
-      return _react2.default.createElement(
-        'li',
-        { key: i },
-        i
-      );
-    })
-  );
-}
-
 var App = function (_React$Component) {
   _inherits(App, _React$Component);
 
   function App(props) {
     _classCallCheck(this, App);
 
-    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+    _this.state = {
+      parent: {
+        name: 'parent component',
+        number: 0
+      },
+      child1: {
+        name: 'child component one',
+        number: 0
+      },
+      child2: {
+        name: 'child component two',
+        number: 0
+      }
+    };
+
+    _this.changeChildNumber = function () {
+      _this.setState({
+        child1: Object.assign({}, _this.state.child1, { number: _this.state.child1.number + 1 })
+      });
+    };
+    _this.changeParentNumber = function (number) {
+      _this.setState({
+        parent: Object.assign({}, _this.state.parent, { number: _this.state.parent.number + 1 })
+      });
+    };
+    _this.changeChild2Number = function () {
+      _this.setState({
+        child2: Object.assign({}, _this.state.child2, { number: _this.state.child2.number + 1 })
+      });
+    };
+    return _this;
   }
 
   _createClass(App, [{
     key: 'render',
     value: function render() {
-      return _react2.default.createElement(Foo, null);
+      return _react2.default.createElement(
+        'div',
+        { style: { border: '1px solid red', padding: '20px' } },
+        _react2.default.createElement(
+          'h1',
+          null,
+          this.state.parent.name
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'parent number: ',
+          this.state.parent.number
+        ),
+        _react2.default.createElement(
+          'button',
+          { onClick: this.changeChildNumber },
+          'change child1 number'
+        ),
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(Child1, { changeChild2Number: this.changeChild2Number, data: this.state.child1 }),
+          _react2.default.createElement(Child2, { changeParentNumber: this.changeParentNumber, data: this.state.child2 })
+        )
+      );
     }
   }]);
 
@@ -21265,6 +21298,92 @@ var App = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = App;
+
+var Child1 = exports.Child1 = function (_React$Component2) {
+  _inherits(Child1, _React$Component2);
+
+  function Child1(props) {
+    _classCallCheck(this, Child1);
+
+    var _this2 = _possibleConstructorReturn(this, (Child1.__proto__ || Object.getPrototypeOf(Child1)).call(this, props));
+
+    _this2.changeNextNumber = function () {
+      _this2.props.changeChild2Number();
+    };
+    return _this2;
+  }
+
+  _createClass(Child1, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { style: { border: '1px solid blue', padding: '10px', marginTop: '20px' } },
+        _react2.default.createElement(
+          'h2',
+          null,
+          this.props.data.name
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'child number: ',
+          this.props.data.number
+        ),
+        _react2.default.createElement(
+          'button',
+          { onClick: this.changeNextNumber },
+          'change child2 number'
+        )
+      );
+    }
+  }]);
+
+  return Child1;
+}(_react2.default.Component);
+
+var Child2 = exports.Child2 = function (_React$Component3) {
+  _inherits(Child2, _React$Component3);
+
+  function Child2(props) {
+    _classCallCheck(this, Child2);
+
+    var _this3 = _possibleConstructorReturn(this, (Child2.__proto__ || Object.getPrototypeOf(Child2)).call(this, props));
+
+    _this3.changeParentNumber = function () {
+      _this3.props.changeParentNumber();
+    };
+    return _this3;
+  }
+
+  _createClass(Child2, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { style: { border: '1px solid green', padding: '10px', marginTop: '20px' } },
+        _react2.default.createElement(
+          'h2',
+          null,
+          this.props.data.name
+        ),
+        _react2.default.createElement(
+          'p',
+          null,
+          'child number: ',
+          this.props.data.number
+        ),
+        _react2.default.createElement(
+          'button',
+          { onClick: this.changeParentNumber },
+          'change parent number'
+        )
+      );
+    }
+  }]);
+
+  return Child2;
+}(_react2.default.Component);
 
 /***/ })
 /******/ ]);
