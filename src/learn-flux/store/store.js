@@ -1,27 +1,29 @@
-import {ReduceStore} from 'flux/utils'
-import dispatcher from './dispatcher'
-import {types} from './const'
+import dispatcher from './dispatcher.js'
+import constants from './constant.js'
+import {EventEmitter} from 'events'
 
-dispatcher.register(payload => {
-  console.log(payload)
+const _store = {
+  list: []
+}
+const Store = Object.assign({}, EventEmitter.prototype, {
+  addChnageListener: cb => this.on('change', cb),
+  removeChnageListener: cb => this.removeListener('change', cb),
+  get: () => _store
 })
 
-class Store extends ReduceStore {
-  constructor () {
-    super(dispatcher)
+dispatcher.register(payload => {
+  switch (payload.type) {
+    case constants.ADD:
+      _store.list = _store.list.map(i => i).concat(payload.obj)
+      Store.emit('change')
+      break
+    case constants.REMOVE:
+      _store.list = _store.list.filter(item => item.id !== payload.id)
+      Store.emit('change')
+      break
+    default:
+      return true
   }
-  getInitialState () {
-    return []
-  }
-  reduce (state, action) {
-    switch (action.type) {
-      case types.ADD:
-        return state.map(i => i).concat(action.obj)
-      case types.REMOVE:
-        return state.filter(item => item.id !== action.id)
-      default:
-        return state
-    }
-  }
-}
-export default new Store()
+})
+
+export default Store

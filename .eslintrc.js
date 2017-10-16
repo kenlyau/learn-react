@@ -7,7 +7,8 @@ module.exports = {
   "extends": "standard",
   "parserOptions": {
       "ecmaFeatures": {
-        "jsx": true
+        "jsx": true,
+        "modules": true
       }
     },
     "globals": {

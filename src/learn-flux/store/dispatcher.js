@@ -1,3 +1,4 @@
-import {Dispatcher} from 'flux'
+import {Dispatcher} from '../lib/dispatcher.js'
+const dispatcher = new Dispatcher()
 
-export default new Dispatcher()
+export default dispatcher

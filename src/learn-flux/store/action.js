@@ -1,19 +1,18 @@
-import {types} from './const'
-import dispatcher from './dispatcher'
+import dispatcher from './dispatcher.js'
+import constants from './constant.js'
 
-const Actions = {
+const actions = {
   add (obj) {
     dispatcher.dispatch({
-      type: types.ADD,
+      type: constants.ADD,
       obj
     })
   },
   remove (id) {
     dispatcher.dispatch({
-      type: types.REMOVE,
+      type: constants.REMOVE,
       id
     })
   }
 }
-
-export default Actions
+export default actions
