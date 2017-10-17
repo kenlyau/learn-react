@@ -1,9 +1,9 @@
 import constants from './constant.js'
-export const add = text => ({
+export const add = obj => ({
   type: constants.ADD,
   obj: {
-    id: Date.now(),
-    text: text
+    id: obj.id,
+    text: obj.text
   }
 })
 

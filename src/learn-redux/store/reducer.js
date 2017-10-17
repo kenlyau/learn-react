@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux'
 import constants from './constant.js'
-const list = (state = [], action) => {
+export const list = (state = [], action) => {
   switch (action.type) {
     case constants.ADD:
       return state.map(i => i).concat(action.obj)

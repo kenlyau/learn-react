@@ -8,7 +8,10 @@ class Edit extends React.Component {
     super(props)
     this.keyup = $ev => {
       if ($ev.keyCode === 13) {
-        this.props.dispatch(add($ev.target.value))
+        this.props.dispatch(add({
+          id: Date.now(),
+          text: $ev.target.value
+        }))
         this.refs.input.value = ''
       }
     }

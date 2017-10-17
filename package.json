@@ -4,7 +4,7 @@
   "description": "学习react",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage",
     "lint": "eslint --ext .js, src",
     "build": "./node_modules/.bin/webpack",
     "dev": "node compile.js"
