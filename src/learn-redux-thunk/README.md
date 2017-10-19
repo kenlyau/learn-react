@@ -1,9 +1,13 @@
 # learn redux
 
-- 1 用connect连接组件和redux生成一个容器组件，mapStateToProps函数将redux中的state映射到组件中的props
+- redux 模式
 ```
-import {connect} from 'react-redux'
-mapStateToProps = (state) => {props: state.xxx}
-NewComponent = connect(mapStateToProps)(Component)
+                ------------<--------------------------------------
+                |                                                  |
+[view] --> [dispatch] --> [action] --> [reducer] --> [store] --> [view]
+               | |
+               | |
+               | |
+           [middleware](副作用、异步处理)
 
 ```
