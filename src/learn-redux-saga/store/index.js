@@ -1,5 +1,14 @@
-import {createStore, combineReducers, applyMiddleware} from 'redux'
-import thunk from 'redux-thunk'
+import {createStore, combineReducers, applyMiddleware, compose} from 'redux'
+import createSagaMiddleware from 'redux-saga'
+import { createLogger } from 'redux-logger'
+import { devToolsEnhancer } from 'redux-devtools-extension'
 import repos from './repos'
 
-export default createStore(combineReducers({repos}), applyMiddleware(thunk))
+export const sageMiddleware = createSagaMiddleware()
+export default createStore(
+  combineReducers({repos}),
+  compose(
+    applyMiddleware(sageMiddleware, createLogger()),
+    devToolsEnhancer()
+  )
+)

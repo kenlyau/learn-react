@@ -1,6 +1,5 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {getRepos} from './store/repos'
 
 export const List = (props) => {
   return (
@@ -10,9 +9,12 @@ export const List = (props) => {
   )
 }
 
-const mapStateToProps = state => ({
-  repos: state.repos
-})
+const mapStateToProps = state => {
+  console.log(state)
+  return {
+    repos: state.repos
+  }
+}
 
 export class App extends React.Component {
   constructor (props) {
@@ -21,7 +23,7 @@ export class App extends React.Component {
       hello: props.hello ? props.hello : 'hello'
     }
     this.getRepos = () => {
-      this.props.dispatch(getRepos())
+      this.props.dispatch({type: 'GET_REPOS_SYNC'})
     }
   }
   render () {

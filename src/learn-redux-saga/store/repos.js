@@ -1,31 +1,35 @@
-const types = {
-  GET_REPOS_REQUEST: 'GET_REPOS_REQUEST',
-  GET_REPOS_FAILURE: 'GET_REPOS_FAILURE',
-  GET_REPOS_SUCCESS: 'GET_REPOS_SUCCESS'
-}
+import types from './constants'
 
-export function getRepos () {
-  return dispatch => {
-    dispatch({type: types.GET_REPOS_REQUEST})
-    return fetch('http://api.github.com/repositories?since=364')
-      .then(response => response.json())
-      .then(json => {
-        dispatch({
-          type: types.GET_REPOS_SUCCESS,
-          payload: json
-        })
-      })
-      .catch(() => {
-        dispatch({type: types.GET_REPOS_FAILURE})
-      })
+export function getReposRequest () {
+  return {
+    type: types.GET_REPOS_REQUEST,
+    pending: true
   }
 }
+
+export function getReposSuccess (result) {
+  return {
+    type: types.GET_REPOS_SUCCESS,
+    pending: false,
+    data: result
+  }
+}
+export function getReposFailure (error) {
+  return {
+    type: types.GET_REPOS_FAILURE,
+    pending: false,
+    error: error
+  }
+}
+
 export default function respos (state = {}, action) {
   switch (action.type) {
     case types.GET_REPOS_REQUEST:
-      return Object.assign({}, state, {pending: true})
+      return Object.assign({}, state, {pending: true, data: []})
     case types.GET_REPOS_SUCCESS:
-      return Object.assign({}, state, {pending: false, data: action.payload})
+      return Object.assign({}, state, {pending: false, data: action.data})
+    case types.GET_REPOS_FAILURE:
+      return Object.assign({}, state, {pending: false, data: [], error: action.error})
     default:
       return state
   }
