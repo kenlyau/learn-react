@@ -1,18 +1,32 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import { getUserRequest } from './store/user'
 
-export const List = (props) => {
+export function View (props) {
+  if (!props.user) {
+    return ''
+  }
+  if (props.error) {
+    return <h1>{props.error.message}</h1>
+  }
   return (
     <ul>
-      {props.data ? props.data.map(item => <li key={item.id}><strong>{item.name}</strong><p>{item.url}</p></li>) : ''}
+      {Object.keys(props.user).map(key => (<li key={key}>
+        <span>{key}</span>&nbsp;{props.user[key]}
+      </li>))}
     </ul>
   )
 }
 
+export function Search (props) {
+  return (
+    <input type="text" onKeyUp={e => props.handleKeyword(e)} />
+  )
+}
+
 const mapStateToProps = state => {
-  console.log(state)
   return {
-    repos: state.repos
+    user: state.user
   }
 }
 
@@ -22,15 +36,18 @@ export class App extends React.Component {
     this.state = {
       hello: props.hello ? props.hello : 'hello'
     }
-    this.getRepos = () => {
-      this.props.dispatch({type: 'GET_REPOS_SYNC'})
+    this.handleKeyword = (e) => {
+      if (e.keyCode !== 13) {
+        return false
+      }
+      this.props.dispatch(getUserRequest(e.target.value))
     }
   }
   render () {
     return (
       <div>
-        <button onClick={this.getRepos}>{this.props.repos.pending === 'pending' ? 'loading repos' : 'get repos'}</button>
-        <List data={this.props.repos.data} />
+        <Search handleKeyword={this.handleKeyword} />
+        <View user={this.props.user.currentUser} error={this.props.user.error}/>
       </div>
     )
   }

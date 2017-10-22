@@ -2,10 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {Provider} from 'react-redux'
 import App from './app'
-import rootSaga from './store/saga'
-import store, {sageMiddleware} from './store/'
-
-sageMiddleware.run(rootSaga)
+import store from './store/'
 
 ReactDOM.render(
   <Provider store={store}>

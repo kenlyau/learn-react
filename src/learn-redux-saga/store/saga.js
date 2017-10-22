@@ -1,22 +1,26 @@
-import {call, put, takeLatest} from 'redux-saga/effects'
-import {API_URL} from './constants'
-import {getReposRequest, getReposSuccess, getReposFailure} from './repos'
+import {call, all, put, fork, takeLatest} from 'redux-saga/effects'
+import {types, getUserError, getUserSuccess} from './user'
+import * as api from '../api'
 
-function fetchRepos (url) {
-  return fetch(url)
-    .then(res => res.json())
-    .then(res => res)
-}
-export function * getRepos () {
-  yield put(getReposRequest())
+function * fetchUser (action) {
   try {
-    let result = yield call(fetchRepos, API_URL)
-    yield put(getReposSuccess(result))
+    const user = yield call(api.getUser, action.payload.keyword)
+    if (user.message) {
+      yield put(getUserError(user))
+    } else {
+      yield put(getUserSuccess(user))
+    }
   } catch (e) {
-    yield put(getReposFailure(e))
+    yield put(getUserError(e))
   }
 }
 
-export default function * root () {
-  yield takeLatest('GET_REPOS_SYNC', getRepos)
+function * watchUserRequest () {
+  yield takeLatest(types.GET_USER_REQUEST, fetchUser)
+}
+
+export default function * rootSaga () {
+  yield all([
+    fork(watchUserRequest)
+  ])
 }
