@@ -1,16 +1,19 @@
-# learn base
+# learn flux
 
+### flux 模式
 ```
-import React from 'react'
-import ReactDOM from 'react-dom'
+官方图
+[action] --> [dispatcher] --> [store] --> [view]
+                 ^                           |
+                 |                           |
+                 -------------[action]--------
+                 
 
+实现图
+            (actions的派发)  (发布事件)
+[action] --> [dispatcher] --> [store] --(订阅事件)--> [view]
+                 ^                                       |
+                 |                                       |
+                 -------------[action]--------------------
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <h1>hello..base</h1>
-    )
-  }
-}
-ReactDOM.render(<App />, document.getElementById('app'))
 ```
