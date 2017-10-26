@@ -11,7 +11,8 @@ const hotMiddlewareScript = 'webpack-hot-middleware/client?reload=true&path=http
 const webpackSetting = {
   plugins: [
     new webpack.HotModuleReplacementPlugin()
-  ]
+  ],
+  devtool: 'source-map'
 }
 const webpackConfig = webpackMerge(webpackSetting, webpackBase)
 Object.keys(webpackConfig.entry).map(key => {

@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "./";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 314);
+/******/ 	return __webpack_require__(__webpack_require__.s = 225);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -22767,7 +22767,12 @@ module.exports = function() {
 /* 121 */,
 /* 122 */,
 /* 123 */,
-/* 124 */,
+/* 124 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = { "default": __webpack_require__(133), __esModule: true };
+
+/***/ }),
 /* 125 */,
 /* 126 */,
 /* 127 */,
@@ -22776,9 +22781,65 @@ module.exports = function() {
 /* 130 */,
 /* 131 */,
 /* 132 */,
-/* 133 */,
-/* 134 */,
-/* 135 */,
+/* 133 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(134);
+module.exports = __webpack_require__(1).Object.assign;
+
+
+/***/ }),
+/* 134 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.3.1 Object.assign(target, source)
+var $export = __webpack_require__(8);
+
+$export($export.S + $export.F, 'Object', { assign: __webpack_require__(135) });
+
+
+/***/ }),
+/* 135 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+// 19.1.2.1 Object.assign(target, source, ...)
+var getKeys = __webpack_require__(21);
+var gOPS = __webpack_require__(40);
+var pIE = __webpack_require__(22);
+var toObject = __webpack_require__(39);
+var IObject = __webpack_require__(57);
+var $assign = Object.assign;
+
+// should work with symbols and should have deterministic property order (V8 bug)
+module.exports = !$assign || __webpack_require__(13)(function () {
+  var A = {};
+  var B = {};
+  // eslint-disable-next-line no-undef
+  var S = Symbol();
+  var K = 'abcdefghijklmnopqrst';
+  A[S] = 7;
+  K.split('').forEach(function (k) { B[k] = k; });
+  return $assign({}, A)[S] != 7 || Object.keys($assign({}, B)).join('') != K;
+}) ? function assign(target, source) { // eslint-disable-line no-unused-vars
+  var T = toObject(target);
+  var aLen = arguments.length;
+  var index = 1;
+  var getSymbols = gOPS.f;
+  var isEnum = pIE.f;
+  while (aLen > index) {
+    var S = IObject(arguments[index++]);
+    var keys = getSymbols ? getKeys(S).concat(getSymbols(S)) : getKeys(S);
+    var length = keys.length;
+    var j = 0;
+    var key;
+    while (length > j) if (isEnum.call(S, key = keys[j++])) T[key] = S[key];
+  } return T;
+} : $assign;
+
+
+/***/ }),
 /* 136 */,
 /* 137 */,
 /* 138 */,
@@ -22820,25 +22881,41 @@ module.exports = function() {
 /* 174 */,
 /* 175 */,
 /* 176 */,
-/* 177 */
+/* 177 */,
+/* 178 */,
+/* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = { "default": __webpack_require__(178), __esModule: true };
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _dispatcher = __webpack_require__(229);
+
+var dispatcher = new _dispatcher.Dispatcher();
+
+exports.default = dispatcher;
 
 /***/ }),
-/* 178 */
+/* 180 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var core = __webpack_require__(1);
-var $JSON = core.JSON || (core.JSON = { stringify: JSON.stringify });
-module.exports = function stringify(it) { // eslint-disable-line no-unused-vars
-  return $JSON.stringify.apply($JSON, arguments);
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var constants = {
+  ADD: 'ADD',
+  REMOVE: 'REMOVE'
 };
-
+exports.default = constants;
 
 /***/ }),
-/* 179 */,
-/* 180 */,
 /* 181 */,
 /* 182 */,
 /* 183 */,
@@ -22883,103 +22960,14 @@ module.exports = function stringify(it) { // eslint-disable-line no-unused-vars
 /* 222 */,
 /* 223 */,
 /* 224 */,
-/* 225 */,
-/* 226 */,
-/* 227 */,
-/* 228 */,
-/* 229 */,
-/* 230 */,
-/* 231 */,
-/* 232 */,
-/* 233 */,
-/* 234 */,
-/* 235 */,
-/* 236 */,
-/* 237 */,
-/* 238 */,
-/* 239 */,
-/* 240 */,
-/* 241 */,
-/* 242 */,
-/* 243 */,
-/* 244 */,
-/* 245 */,
-/* 246 */,
-/* 247 */,
-/* 248 */,
-/* 249 */,
-/* 250 */,
-/* 251 */,
-/* 252 */,
-/* 253 */,
-/* 254 */,
-/* 255 */,
-/* 256 */,
-/* 257 */,
-/* 258 */,
-/* 259 */,
-/* 260 */,
-/* 261 */,
-/* 262 */,
-/* 263 */,
-/* 264 */,
-/* 265 */,
-/* 266 */,
-/* 267 */,
-/* 268 */,
-/* 269 */,
-/* 270 */,
-/* 271 */,
-/* 272 */,
-/* 273 */,
-/* 274 */,
-/* 275 */,
-/* 276 */,
-/* 277 */,
-/* 278 */,
-/* 279 */,
-/* 280 */,
-/* 281 */,
-/* 282 */,
-/* 283 */,
-/* 284 */,
-/* 285 */,
-/* 286 */,
-/* 287 */,
-/* 288 */,
-/* 289 */,
-/* 290 */,
-/* 291 */,
-/* 292 */,
-/* 293 */,
-/* 294 */,
-/* 295 */,
-/* 296 */,
-/* 297 */,
-/* 298 */,
-/* 299 */,
-/* 300 */,
-/* 301 */,
-/* 302 */,
-/* 303 */,
-/* 304 */,
-/* 305 */,
-/* 306 */,
-/* 307 */,
-/* 308 */,
-/* 309 */,
-/* 310 */,
-/* 311 */,
-/* 312 */,
-/* 313 */,
-/* 314 */
+/* 225 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(315);
+module.exports = __webpack_require__(226);
 
 
 /***/ }),
-/* 315 */
+/* 226 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22993,7 +22981,7 @@ var _reactDom = __webpack_require__(103);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _app = __webpack_require__(316);
+var _app = __webpack_require__(227);
 
 var _app2 = _interopRequireDefault(_app);
 
@@ -23002,7 +22990,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _reactDom2.default.render(_react2.default.createElement(_app2.default, null), document.getElementById('app'));
 
 /***/ }),
-/* 316 */
+/* 227 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23011,11 +22999,11 @@ _reactDom2.default.render(_react2.default.createElement(_app2.default, null), do
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Child = undefined;
+exports.Edit = exports.Item = exports.List = undefined;
 
-var _stringify = __webpack_require__(177);
+var _assign = __webpack_require__(124);
 
-var _stringify2 = _interopRequireDefault(_stringify);
+var _assign2 = _interopRequireDefault(_assign);
 
 var _getPrototypeOf = __webpack_require__(60);
 
@@ -23041,70 +23029,136 @@ var _react = __webpack_require__(9);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _store = __webpack_require__(228);
+
+var _store2 = _interopRequireDefault(_store);
+
+var _action = __webpack_require__(231);
+
+var _action2 = _interopRequireDefault(_action);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Child = exports.Child = function (_React$Component) {
-  (0, _inherits3.default)(Child, _React$Component);
+var List = exports.List = function (_React$Component) {
+  (0, _inherits3.default)(List, _React$Component);
 
-  function Child(props) {
-    (0, _classCallCheck3.default)(this, Child);
+  function List(props) {
+    (0, _classCallCheck3.default)(this, List);
 
-    var _this = (0, _possibleConstructorReturn3.default)(this, (Child.__proto__ || (0, _getPrototypeOf2.default)(Child)).call(this, props));
+    var _this = (0, _possibleConstructorReturn3.default)(this, (List.__proto__ || (0, _getPrototypeOf2.default)(List)).call(this, props));
 
     _this.state = {
-      time: 1
+      list: []
     };
-    _this.interval = setInterval(function () {
-      return _this.setState({ time: _this.state.time + 1 });
-    }, 1000);
     return _this;
   }
 
-  (0, _createClass3.default)(Child, [{
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {
-      clearInterval(this.interval);
+  (0, _createClass3.default)(List, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      var _this2 = this;
+
+      _store2.default.on('change', function () {
+        _this2.setState(_store2.default.get());
+      });
     }
   }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        'div',
-        { style: { border: '1px solid #666600', padding: '20px' } },
-        this.props.data.name,
+        'ul',
+        null,
+        this.state.list.map(function (item) {
+          return _react2.default.createElement(Item, { key: item.id, data: item });
+        })
+      );
+    }
+  }]);
+  return List;
+}(_react2.default.Component);
+
+var Item = exports.Item = function (_React$Component2) {
+  (0, _inherits3.default)(Item, _React$Component2);
+
+  function Item(props) {
+    (0, _classCallCheck3.default)(this, Item);
+
+    var _this3 = (0, _possibleConstructorReturn3.default)(this, (Item.__proto__ || (0, _getPrototypeOf2.default)(Item)).call(this, props));
+
+    _this3.remove = function () {
+      _action2.default.remove(_this3.props.data.id);
+    };
+    return _this3;
+  }
+
+  (0, _createClass3.default)(Item, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'li',
+        null,
+        this.props.data.id,
+        '--',
+        this.props.data.text,
+        '\xA0',
         _react2.default.createElement(
-          'p',
-          null,
-          this.state.time
+          'button',
+          { onClick: this.remove },
+          'x'
         )
       );
     }
   }]);
-  return Child;
+  return Item;
 }(_react2.default.Component);
 
-var App = function (_React$Component2) {
-  (0, _inherits3.default)(App, _React$Component2);
+var Edit = exports.Edit = function (_React$Component3) {
+  (0, _inherits3.default)(Edit, _React$Component3);
+
+  function Edit(props) {
+    (0, _classCallCheck3.default)(this, Edit);
+
+    var _this4 = (0, _possibleConstructorReturn3.default)(this, (Edit.__proto__ || (0, _getPrototypeOf2.default)(Edit)).call(this, props));
+
+    _this4.submit = function ($ev) {
+      if ($ev.keyCode === 13) {
+        var val = $ev.target.value;
+        _action2.default.add({ id: Date.now(), text: val });
+        _this4.refs.input.value = '';
+      }
+    };
+    return _this4;
+  }
+
+  (0, _createClass3.default)(Edit, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement('input', { ref: 'input', onKeyUp: this.submit, type: 'text', placeholder: 'please type' });
+    }
+  }]);
+  return Edit;
+}(_react2.default.Component);
+
+var App = function (_React$Component4) {
+  (0, _inherits3.default)(App, _React$Component4);
 
   function App(props) {
     (0, _classCallCheck3.default)(this, App);
 
-    var _this2 = (0, _possibleConstructorReturn3.default)(this, (App.__proto__ || (0, _getPrototypeOf2.default)(App)).call(this, props));
+    var _this5 = (0, _possibleConstructorReturn3.default)(this, (App.__proto__ || (0, _getPrototypeOf2.default)(App)).call(this, props));
 
-    _this2.state = {
-      name: 'react component state',
-      show: true,
-      child: {
-        name: 'react child compoent'
-      }
+    _this5.state = {
+      hello: props.hello ? props.hello : 'hello'
     };
-    _this2.toggle = function () {
-      _this2.setState({ show: !_this2.state.show });
-    };
-    return _this2;
+    return _this5;
   }
 
   (0, _createClass3.default)(App, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      this.setState((0, _assign2.default)({}, this.state, _store2.default.get()));
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
@@ -23113,19 +23167,10 @@ var App = function (_React$Component2) {
         _react2.default.createElement(
           'h1',
           null,
-          this.state.name
+          this.state.hello
         ),
-        _react2.default.createElement(
-          'button',
-          { onClick: this.toggle },
-          'Toggle show child'
-        ),
-        _react2.default.createElement(
-          'pre',
-          null,
-          (0, _stringify2.default)(this.state, null, 4)
-        ),
-        this.state.show ? _react2.default.createElement(Child, { data: this.state.child }) : ''
+        _react2.default.createElement(Edit, null),
+        _react2.default.createElement(List, null)
       );
     }
   }]);
@@ -23133,6 +23178,459 @@ var App = function (_React$Component2) {
 }(_react2.default.Component);
 
 exports.default = App;
+
+/***/ }),
+/* 228 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _assign = __webpack_require__(124);
+
+var _assign2 = _interopRequireDefault(_assign);
+
+var _dispatcher = __webpack_require__(179);
+
+var _dispatcher2 = _interopRequireDefault(_dispatcher);
+
+var _constant = __webpack_require__(180);
+
+var _constant2 = _interopRequireDefault(_constant);
+
+var _events = __webpack_require__(230);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _store = {
+  list: []
+};
+var Store = (0, _assign2.default)({}, _events.EventEmitter.prototype, {
+  addChnageListener: function addChnageListener(cb) {
+    return undefined.on('change', cb);
+  },
+  removeChnageListener: function removeChnageListener(cb) {
+    return undefined.removeListener('change', cb);
+  },
+  get: function get() {
+    return _store;
+  }
+});
+
+_dispatcher2.default.register(function (payload) {
+  switch (payload.type) {
+    case _constant2.default.ADD:
+      _store.list = _store.list.map(function (i) {
+        return i;
+      }).concat(payload.obj);
+      Store.emit('change');
+      break;
+    case _constant2.default.REMOVE:
+      _store.list = _store.list.filter(function (item) {
+        return item.id !== payload.id;
+      });
+      Store.emit('change');
+      break;
+    default:
+      return true;
+  }
+});
+
+exports.default = Store;
+
+/***/ }),
+/* 229 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Dispatcher = undefined;
+
+var _classCallCheck2 = __webpack_require__(58);
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _createClass2 = __webpack_require__(59);
+
+var _createClass3 = _interopRequireDefault(_createClass2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Dispatcher = exports.Dispatcher = function () {
+  function Dispatcher() {
+    (0, _classCallCheck3.default)(this, Dispatcher);
+
+    this.cbList = [];
+  }
+
+  (0, _createClass3.default)(Dispatcher, [{
+    key: "dispatch",
+    value: function dispatch(obj) {
+      this.cbList.map(function (cb) {
+        return cb(obj);
+      });
+    }
+  }, {
+    key: "register",
+    value: function register(fn) {
+      this.cbList.push(fn);
+    }
+  }]);
+  return Dispatcher;
+}();
+
+/***/ }),
+/* 230 */
+/***/ (function(module, exports) {
+
+// Copyright Joyent, Inc. and other Node contributors.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the
+// "Software"), to deal in the Software without restriction, including
+// without limitation the rights to use, copy, modify, merge, publish,
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// persons to whom the Software is furnished to do so, subject to the
+// following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+// USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+function EventEmitter() {
+  this._events = this._events || {};
+  this._maxListeners = this._maxListeners || undefined;
+}
+module.exports = EventEmitter;
+
+// Backwards-compat with node 0.10.x
+EventEmitter.EventEmitter = EventEmitter;
+
+EventEmitter.prototype._events = undefined;
+EventEmitter.prototype._maxListeners = undefined;
+
+// By default EventEmitters will print a warning if more than 10 listeners are
+// added to it. This is a useful default which helps finding memory leaks.
+EventEmitter.defaultMaxListeners = 10;
+
+// Obviously not all Emitters should be limited to 10. This function allows
+// that to be increased. Set to zero for unlimited.
+EventEmitter.prototype.setMaxListeners = function(n) {
+  if (!isNumber(n) || n < 0 || isNaN(n))
+    throw TypeError('n must be a positive number');
+  this._maxListeners = n;
+  return this;
+};
+
+EventEmitter.prototype.emit = function(type) {
+  var er, handler, len, args, i, listeners;
+
+  if (!this._events)
+    this._events = {};
+
+  // If there is no 'error' event listener then throw.
+  if (type === 'error') {
+    if (!this._events.error ||
+        (isObject(this._events.error) && !this._events.error.length)) {
+      er = arguments[1];
+      if (er instanceof Error) {
+        throw er; // Unhandled 'error' event
+      } else {
+        // At least give some kind of context to the user
+        var err = new Error('Uncaught, unspecified "error" event. (' + er + ')');
+        err.context = er;
+        throw err;
+      }
+    }
+  }
+
+  handler = this._events[type];
+
+  if (isUndefined(handler))
+    return false;
+
+  if (isFunction(handler)) {
+    switch (arguments.length) {
+      // fast cases
+      case 1:
+        handler.call(this);
+        break;
+      case 2:
+        handler.call(this, arguments[1]);
+        break;
+      case 3:
+        handler.call(this, arguments[1], arguments[2]);
+        break;
+      // slower
+      default:
+        args = Array.prototype.slice.call(arguments, 1);
+        handler.apply(this, args);
+    }
+  } else if (isObject(handler)) {
+    args = Array.prototype.slice.call(arguments, 1);
+    listeners = handler.slice();
+    len = listeners.length;
+    for (i = 0; i < len; i++)
+      listeners[i].apply(this, args);
+  }
+
+  return true;
+};
+
+EventEmitter.prototype.addListener = function(type, listener) {
+  var m;
+
+  if (!isFunction(listener))
+    throw TypeError('listener must be a function');
+
+  if (!this._events)
+    this._events = {};
+
+  // To avoid recursion in the case that type === "newListener"! Before
+  // adding it to the listeners, first emit "newListener".
+  if (this._events.newListener)
+    this.emit('newListener', type,
+              isFunction(listener.listener) ?
+              listener.listener : listener);
+
+  if (!this._events[type])
+    // Optimize the case of one listener. Don't need the extra array object.
+    this._events[type] = listener;
+  else if (isObject(this._events[type]))
+    // If we've already got an array, just append.
+    this._events[type].push(listener);
+  else
+    // Adding the second element, need to change to array.
+    this._events[type] = [this._events[type], listener];
+
+  // Check for listener leak
+  if (isObject(this._events[type]) && !this._events[type].warned) {
+    if (!isUndefined(this._maxListeners)) {
+      m = this._maxListeners;
+    } else {
+      m = EventEmitter.defaultMaxListeners;
+    }
+
+    if (m && m > 0 && this._events[type].length > m) {
+      this._events[type].warned = true;
+      console.error('(node) warning: possible EventEmitter memory ' +
+                    'leak detected. %d listeners added. ' +
+                    'Use emitter.setMaxListeners() to increase limit.',
+                    this._events[type].length);
+      if (typeof console.trace === 'function') {
+        // not supported in IE 10
+        console.trace();
+      }
+    }
+  }
+
+  return this;
+};
+
+EventEmitter.prototype.on = EventEmitter.prototype.addListener;
+
+EventEmitter.prototype.once = function(type, listener) {
+  if (!isFunction(listener))
+    throw TypeError('listener must be a function');
+
+  var fired = false;
+
+  function g() {
+    this.removeListener(type, g);
+
+    if (!fired) {
+      fired = true;
+      listener.apply(this, arguments);
+    }
+  }
+
+  g.listener = listener;
+  this.on(type, g);
+
+  return this;
+};
+
+// emits a 'removeListener' event iff the listener was removed
+EventEmitter.prototype.removeListener = function(type, listener) {
+  var list, position, length, i;
+
+  if (!isFunction(listener))
+    throw TypeError('listener must be a function');
+
+  if (!this._events || !this._events[type])
+    return this;
+
+  list = this._events[type];
+  length = list.length;
+  position = -1;
+
+  if (list === listener ||
+      (isFunction(list.listener) && list.listener === listener)) {
+    delete this._events[type];
+    if (this._events.removeListener)
+      this.emit('removeListener', type, listener);
+
+  } else if (isObject(list)) {
+    for (i = length; i-- > 0;) {
+      if (list[i] === listener ||
+          (list[i].listener && list[i].listener === listener)) {
+        position = i;
+        break;
+      }
+    }
+
+    if (position < 0)
+      return this;
+
+    if (list.length === 1) {
+      list.length = 0;
+      delete this._events[type];
+    } else {
+      list.splice(position, 1);
+    }
+
+    if (this._events.removeListener)
+      this.emit('removeListener', type, listener);
+  }
+
+  return this;
+};
+
+EventEmitter.prototype.removeAllListeners = function(type) {
+  var key, listeners;
+
+  if (!this._events)
+    return this;
+
+  // not listening for removeListener, no need to emit
+  if (!this._events.removeListener) {
+    if (arguments.length === 0)
+      this._events = {};
+    else if (this._events[type])
+      delete this._events[type];
+    return this;
+  }
+
+  // emit removeListener for all listeners on all events
+  if (arguments.length === 0) {
+    for (key in this._events) {
+      if (key === 'removeListener') continue;
+      this.removeAllListeners(key);
+    }
+    this.removeAllListeners('removeListener');
+    this._events = {};
+    return this;
+  }
+
+  listeners = this._events[type];
+
+  if (isFunction(listeners)) {
+    this.removeListener(type, listeners);
+  } else if (listeners) {
+    // LIFO order
+    while (listeners.length)
+      this.removeListener(type, listeners[listeners.length - 1]);
+  }
+  delete this._events[type];
+
+  return this;
+};
+
+EventEmitter.prototype.listeners = function(type) {
+  var ret;
+  if (!this._events || !this._events[type])
+    ret = [];
+  else if (isFunction(this._events[type]))
+    ret = [this._events[type]];
+  else
+    ret = this._events[type].slice();
+  return ret;
+};
+
+EventEmitter.prototype.listenerCount = function(type) {
+  if (this._events) {
+    var evlistener = this._events[type];
+
+    if (isFunction(evlistener))
+      return 1;
+    else if (evlistener)
+      return evlistener.length;
+  }
+  return 0;
+};
+
+EventEmitter.listenerCount = function(emitter, type) {
+  return emitter.listenerCount(type);
+};
+
+function isFunction(arg) {
+  return typeof arg === 'function';
+}
+
+function isNumber(arg) {
+  return typeof arg === 'number';
+}
+
+function isObject(arg) {
+  return typeof arg === 'object' && arg !== null;
+}
+
+function isUndefined(arg) {
+  return arg === void 0;
+}
+
+
+/***/ }),
+/* 231 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _dispatcher = __webpack_require__(179);
+
+var _dispatcher2 = _interopRequireDefault(_dispatcher);
+
+var _constant = __webpack_require__(180);
+
+var _constant2 = _interopRequireDefault(_constant);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var actions = {
+  add: function add(obj) {
+    _dispatcher2.default.dispatch({
+      type: _constant2.default.ADD,
+      obj: obj
+    });
+  },
+  remove: function remove(id) {
+    _dispatcher2.default.dispatch({
+      type: _constant2.default.REMOVE,
+      id: id
+    });
+  }
+};
+exports.default = actions;
 
 /***/ })
 /******/ ]);
