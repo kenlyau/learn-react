@@ -60,15 +60,7 @@
 /******/ 	__webpack_require__.p = "./";
 /******/
 /******/ 	// Load entry module and return exports
-<<<<<<< HEAD
-<<<<<<< HEAD
-/******/ 	return __webpack_require__(__webpack_require__.s = 45);
-=======
-/******/ 	return __webpack_require__(__webpack_require__.s = 219);
->>>>>>> master
-=======
 /******/ 	return __webpack_require__(__webpack_require__.s = 261);
->>>>>>> master
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -22769,35 +22761,6 @@ module.exports = function() {
 
 
 /***/ }),
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 31 */,
-/* 32 */,
-/* 33 */,
-/* 34 */,
-/* 35 */,
-/* 36 */,
-/* 37 */,
-/* 38 */,
-/* 39 */,
-/* 40 */,
-/* 41 */,
-/* 42 */,
-/* 43 */,
-/* 44 */,
-/* 45 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(46);
-
-
-/***/ }),
-/* 46 */
-=======
-/* 116 */,
-/* 117 */,
-=======
->>>>>>> master
 /* 118 */,
 /* 119 */,
 /* 120 */,
@@ -23009,12 +22972,7 @@ module.exports = __webpack_require__(262);
 
 
 /***/ }),
-<<<<<<< HEAD
-/* 220 */
->>>>>>> master
-=======
 /* 262 */
->>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23028,15 +22986,7 @@ var _reactDom = __webpack_require__(105);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-var _app = __webpack_require__(47);
-=======
-var _app = __webpack_require__(221);
->>>>>>> master
-=======
 var _app = __webpack_require__(263);
->>>>>>> master
 
 var _app2 = _interopRequireDefault(_app);
 
@@ -23045,15 +22995,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _reactDom2.default.render(_react2.default.createElement(_app2.default, null), document.getElementById('app'));
 
 /***/ }),
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 47 */
-=======
-/* 221 */
->>>>>>> master
-=======
 /* 263 */
->>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

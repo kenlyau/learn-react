@@ -60,15 +60,7 @@
 /******/ 	__webpack_require__.p = "./";
 /******/
 /******/ 	// Load entry module and return exports
-<<<<<<< HEAD
-<<<<<<< HEAD
-/******/ 	return __webpack_require__(__webpack_require__.s = 33);
-=======
-/******/ 	return __webpack_require__(__webpack_require__.s = 202);
->>>>>>> master
-=======
 /******/ 	return __webpack_require__(__webpack_require__.s = 242);
->>>>>>> master
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -22769,23 +22761,6 @@ module.exports = function() {
 
 
 /***/ }),
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 31 */,
-/* 32 */,
-/* 33 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(34);
-
-
-/***/ }),
-/* 34 */
-=======
-/* 116 */,
-/* 117 */,
-=======
->>>>>>> master
 /* 118 */,
 /* 119 */,
 /* 120 */,
@@ -22917,12 +22892,7 @@ module.exports = __webpack_require__(243);
 
 
 /***/ }),
-<<<<<<< HEAD
-/* 203 */
->>>>>>> master
-=======
 /* 243 */
->>>>>>> master
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22958,15 +22928,7 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-var foldersContext = __webpack_require__(35);
-=======
-var foldersContext = __webpack_require__(204);
->>>>>>> master
-=======
 var foldersContext = __webpack_require__(244);
->>>>>>> master
 var learns = foldersContext.keys().filter(function (item) {
   return item.indexOf('learn-') > -1;
 }).map(function (item) {
@@ -23009,36 +22971,6 @@ var App = function (_React$Component) {
 _reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('app'));
 
 /***/ }),
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 35 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var map = {
-	"./index.html": 36,
-	"./learn-base/index.html": 37,
-	"./learn-communicate-between-components/index.html": 38,
-	"./learn-component/index.html": 39,
-	"./learn-flux/index.html": 40,
-	"./learn-state/index.html": 41
-=======
-/* 204 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var map = {
-	"./index.html": 205,
-	"./learn-base/index.html": 206,
-	"./learn-communicate-between-components/index.html": 207,
-	"./learn-component/index.html": 208,
-	"./learn-flux-1/index.html": 209,
-	"./learn-flux/index.html": 210,
-	"./learn-redux-saga/index.html": 211,
-	"./learn-redux-thunk/index.html": 212,
-	"./learn-redux/index.html": 213,
-	"./learn-router/index.html": 214,
-	"./learn-state/index.html": 215
->>>>>>> master
-=======
 /* 244 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23056,7 +22988,6 @@ var map = {
 	"./learn-router-redux/index.html": 255,
 	"./learn-router/index.html": 256,
 	"./learn-state/index.html": 257
->>>>>>> master
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -23072,93 +23003,40 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-<<<<<<< HEAD
-<<<<<<< HEAD
-webpackContext.id = 35;
-
-/***/ }),
-/* 36 */
-=======
-webpackContext.id = 204;
-
-/***/ }),
-/* 205 */
->>>>>>> master
-=======
 webpackContext.id = 244;
 
 /***/ }),
 /* 245 */
->>>>>>> master
 /***/ (function(module, exports) {
 
 module.exports = "<!doctype html>\r\n<html>\r\n<head>\r\n  <meta charset=\"utf-8\">\r\n  <title>learn react</title>\r\n</head>\r\n<body>\r\n  <div id=\"app\"></div>\r\n</body>\r\n</html>";
 
 /***/ }),
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 37 */
-=======
-/* 206 */
->>>>>>> master
-=======
 /* 246 */
->>>>>>> master
 /***/ (function(module, exports) {
 
 module.exports = "<!doctype html>\r\n<html>\r\n<head>\r\n  <meta charset=\"utf-8\">\r\n  <title>learn react</title>\r\n</head>\r\n<body>\r\n  <div id=\"app\"></div>\r\n</body>\r\n</html>";
 
 /***/ }),
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 38 */
-=======
-/* 207 */
->>>>>>> master
-=======
 /* 247 */
->>>>>>> master
 /***/ (function(module, exports) {
 
 module.exports = "<!doctype html>\r\n<html>\r\n<head>\r\n  <meta charset=\"utf-8\">\r\n  <title>learn react</title>\r\n</head>\r\n<body>\r\n  <div id=\"app\"></div>\r\n</body>\r\n</html>";
 
 /***/ }),
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 39 */
-=======
-/* 208 */
->>>>>>> master
-=======
 /* 248 */
->>>>>>> master
 /***/ (function(module, exports) {
 
 module.exports = "<!doctype html>\r\n<html>\r\n<head>\r\n  <meta charset=\"utf-8\">\r\n  <title>learn react component</title>\r\n</head>\r\n<body>\r\n  <div id=\"app\" style=\"border: 1px solid red;\"></div>\r\n</body>\r\n</html>";
 
 /***/ }),
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 40 */
-=======
-/* 209 */
->>>>>>> master
-=======
 /* 249 */
->>>>>>> master
 /***/ (function(module, exports) {
 
 module.exports = "<!doctype html>\r\n<html>\r\n<head>\r\n  <meta charset=\"utf-8\">\r\n  <title>learn react</title>\r\n</head>\r\n<body>\r\n  <div id=\"app\"></div>\r\n</body>\r\n</html>";
 
 /***/ }),
-<<<<<<< HEAD
-<<<<<<< HEAD
-/* 41 */
-=======
-/* 210 */
-=======
 /* 250 */
->>>>>>> master
 /***/ (function(module, exports) {
 
 module.exports = "<!doctype html>\r\n<html>\r\n<head>\r\n  <meta charset=\"utf-8\">\r\n  <title>learn react</title>\r\n</head>\r\n<body>\r\n  <div id=\"app\"></div>\r\n</body>\r\n</html>";
@@ -23200,12 +23078,7 @@ module.exports = "<!doctype html>\r\n<html>\r\n  <head>\r\n    <title>learn reac
 module.exports = "<!doctype html>\r\n<html>\r\n<head>\r\n  <meta charset=\"utf-8\">\r\n  <meta name=\"viewport\" content=\"width=device-width\" >\r\n  <title>learn react router</title>\r\n</head>\r\n<body>\r\n  <div id=\"app\"></div>\r\n</body>\r\n</html>";
 
 /***/ }),
-<<<<<<< HEAD
-/* 215 */
->>>>>>> master
-=======
 /* 257 */
->>>>>>> master
 /***/ (function(module, exports) {
 
 module.exports = "<!doctype html>\r\n<html>\r\n<head>\r\n  <meta charset=\"utf-8\">\r\n  <title>learn react state</title>\r\n</head>\r\n<body>\r\n  <div id=\"app\"></div>\r\n</body>\r\n</html>";
